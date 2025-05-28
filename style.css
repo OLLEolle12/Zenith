@@ -91,13 +91,16 @@ header h1 {
 
 /* Left arrow */
 #left-arrow {
-  left: -30px;
+  left: 0;
+  transform: translate(-100%, -50%);
 }
 
 /* Right arrow */
 #right-arrow {
-  right: -30px;
+  right: 0;
+  transform: translate(100%, -50%);
 }
+
 
 .carousel-arrow:hover {
   color: var(--neon-white);
