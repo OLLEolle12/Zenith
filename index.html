@@ -2,44 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Roblox Rayfield GUI Hack</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roblox Lua GUI Script Showcase</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- PrismJS CSS for syntax highlighting -->
-  <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" />
 </head>
 <body>
-
   <header>
-    <h1>My Roblox Rayfield GUI Hack</h1>
+    <h1>Rayfield GUI Lua Script Showcase</h1>
   </header>
 
-  <main>
-    <section class="image-section" id="rayfield-section">
-      <img src="rayfield.png" alt="Rayfield GUI" class="neon-image" />
-    </section>
+  <!-- GUI Image Carousel Section -->
+  <div id="gui-carousel-section" class="image-section visible">
+    <button id="left-arrow" class="carousel-arrow" aria-label="Previous Image">&#8592;</button>
+    <img id="carousel-image" src="gui.png" alt="GUI screenshot">
+    <button id="right-arrow" class="carousel-arrow" aria-label="Next Image">&#8594;</button>
+  </div>
 
-    <section class="image-section" id="gui-carousel-section">
-      <button class="carousel-arrow left" aria-label="Previous image">&#8592;</button>
+  <!-- Code Section -->
+  <section class="code-section visible">
+    <h2>Lua Script Code</h2>
+    <pre><code class="language-lua" id="lua-code-block">
+// The code will be injected here using script.js
+    </code></pre>
+  </section>
 
-      <img id="carousel-image" src="gui.png" alt="GUI Screenshot" class="neon-image" />
-
-      <button class="carousel-arrow right" aria-label="Next image">&#8594;</button>
-    </section>
-
-    <section class="code-section">
-      <h2>Lua Script</h2>
-      <pre><code id="codeblock" class="language-lua">Loading code...</code></pre>
-    </section>
-  </main>
-
-  <!-- PrismJS scripts -->
   <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-lua.min.js"></script>
-
-  <!-- Your custom JS -->
   <script src="script.js"></script>
-
 </body>
 </html>
