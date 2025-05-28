@@ -68,47 +68,6 @@ header h1 {
   filter: drop-shadow(0 0 25px var(--neon-white));
 }
 
-/* Arrows overlayed left and right */
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  color: var(--neon-pink);
-  font-size: 5rem;
-  cursor: pointer;
-  user-select: none;
-  width: 60px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: drop-shadow(0 0 10px var(--neon-pink-glow));
-  transition: color 0.3s ease, filter 0.3s ease, transform 0.2s ease;
-  z-index: 10;
-}
-
-/* Left arrow */
-#left-arrow {
-  left: -30px;
-}
-
-/* Right arrow */
-#right-arrow {
-  right: -30px;
-}
-
-.carousel-arrow:hover {
-  color: var(--neon-white);
-  filter: drop-shadow(0 0 25px var(--neon-white-glow));
-  transform: translateY(-50%) scale(1.1);
-}
-
-.carousel-arrow:active {
-  transform: translateY(-50%) scale(0.95);
-}
-
 /* Code section styling */
 .code-section {
   background: #1a1a1a;
