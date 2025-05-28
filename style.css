@@ -89,17 +89,20 @@ header h1 {
   z-index: 10;
 }
 
-/* Left arrow */
 #left-arrow {
-  left: 0;
-  transform: translate(-100%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
 }
 
-/* Right arrow */
 #right-arrow {
-  right: 0;
-  transform: translate(100%, -50%);
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
 }
+
 
 
 .carousel-arrow:hover {
