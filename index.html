@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="style.css" />
   <!-- PrismJS CSS for syntax highlighting -->
   <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
-
 </head>
 <body>
 
@@ -35,22 +34,8 @@
   <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-lua.min.js"></script>
 
-  <script>
-    fetch('script.lua')
-      .then(response => {
-        if (!response.ok) throw new Error('Failed to fetch script.lua');
-        return response.text();
-      })
-      .then(data => {
-        const codeBlock = document.getElementById('codeblock');
-        codeBlock.textContent = data;
-        Prism.highlightElement(codeBlock);
-      })
-      .catch(err => {
-        console.error(err);
-        document.getElementById('codeblock').textContent = 'Failed to load script.lua';
-      });
-  </script>
+  <!-- Your custom JS -->
+  <script src="script.js"></script>
 
 </body>
 </html>
