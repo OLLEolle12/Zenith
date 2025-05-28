@@ -44,21 +44,70 @@ header h1 {
 }
 
 /* Neon images */
-.neon-image {
-  max-width: 100%;
+#gui-carousel-section {
+  position: relative; /* For positioning arrows */
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+}
+
+#carousel-image {
+  width: 100%;
   height: auto;
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow:
     0 0 30px var(--neon-pink-glow),
     inset 0 0 20px var(--neon-white-glow);
-  filter: drop-shadow(0 0 12px var(--neon-pink));
+  filter: drop-shadow(0 0 10px var(--neon-pink));
   transition: filter 0.4s ease;
   display: block;
-  margin: 0 auto;
+  user-select: none;
 }
 
-.neon-image:hover {
+#carousel-image:hover {
   filter: drop-shadow(0 0 25px var(--neon-white));
+}
+
+/* Big arrows overlay */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--neon-pink);
+  font-size: 5rem;
+  cursor: pointer;
+  user-select: none;
+  padding: 0;
+  width: 60px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 10px var(--neon-pink-glow));
+  transition: color 0.3s ease, filter 0.3s ease, transform 0.2s ease;
+  border-radius: 12px;
+  z-index: 10;
+}
+
+.carousel-arrow:hover {
+  color: var(--neon-white);
+  filter: drop-shadow(0 0 25px var(--neon-white-glow));
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Left arrow on left side */
+#left-arrow {
+  left: 10px;
+}
+
+/* Right arrow on right side */
+#right-arrow {
+  right: 10px;
 }
 
 /* Code section styling */
@@ -68,6 +117,8 @@ header h1 {
   padding: 1.5rem;
   box-shadow:
     0 0 25px var(--neon-pink-glow);
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .code-section h2 {
@@ -85,67 +136,6 @@ pre[class*="language-"] {
   line-height: 1.4 !important;
   padding: 1rem !important;
   overflow-x: auto;
-}
-
-/* === Carousel container and arrows styles === */
-#gui-carousel-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-  margin: 0 auto;
-  max-width: 900px;
-}
-
-.carousel-arrow {
-  background: transparent;
-  border: 2px solid var(--neon-pink);
-  color: var(--neon-pink);
-  font-size: 2.8rem;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 10px 20px;
-  border-radius: 12px;
-  box-shadow:
-    0 0 10px var(--neon-pink-glow),
-    inset 0 0 8px var(--neon-pink-glow);
-  transition: 
-    color 0.3s ease, 
-    border-color 0.3s ease, 
-    box-shadow 0.3s ease,
-    transform 0.2s ease;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-arrow:hover {
-  color: var(--neon-white);
-  border-color: var(--neon-white);
-  box-shadow:
-    0 0 20px var(--neon-white-glow),
-    inset 0 0 15px var(--neon-white-glow);
-  transform: scale(1.1);
-}
-
-.carousel-arrow:active {
-  transform: scale(0.95);
-}
-
-#carousel-image {
-  max-width: 700px;
-  max-height: 450px;
-  border-radius: 16px;
-  box-shadow:
-    0 0 30px var(--neon-pink-glow),
-    inset 0 0 20px var(--neon-white-glow);
-  filter: drop-shadow(0 0 10px var(--neon-pink));
-  transition: filter 0.4s ease;
-}
-
-#carousel-image:hover {
-  filter: drop-shadow(0 0 25px var(--neon-white));
 }
 
 /* Custom scrollbar */
@@ -175,18 +165,14 @@ body::-webkit-scrollbar-thumb:hover {
     max-height: 60vh;
   }
   #gui-carousel-section {
-    gap: 15px;
+    margin-bottom: 2rem;
   }
 }
 
 @media (max-width: 600px) {
-  #gui-carousel-section {
-    flex-direction: column;
-    gap: 20px;
-  }
-
   .carousel-arrow {
-    font-size: 3rem;
-    padding: 12px 28px;
+    font-size: 4rem;
+    width: 50px;
+    height: 80px;
   }
 }
