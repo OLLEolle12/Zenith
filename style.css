@@ -43,13 +43,14 @@ header h1 {
   transform: translateY(0) !important;
 }
 
-/* Neon images */
+/* GUI Carousel Section */
 #gui-carousel-section {
-  position: relative; /* For positioning arrows */
+  position: relative;
   max-width: 900px;
   margin: 0 auto 3rem auto;
 }
 
+/* Main carousel image */
 #carousel-image {
   width: 100%;
   height: auto;
@@ -67,7 +68,7 @@ header h1 {
   filter: drop-shadow(0 0 25px var(--neon-white));
 }
 
-/* Big arrows overlay */
+/* Arrows overlayed left and right */
 .carousel-arrow {
   position: absolute;
   top: 50%;
@@ -78,7 +79,6 @@ header h1 {
   font-size: 5rem;
   cursor: pointer;
   user-select: none;
-  padding: 0;
   width: 60px;
   height: 100px;
   display: flex;
@@ -86,8 +86,17 @@ header h1 {
   justify-content: center;
   filter: drop-shadow(0 0 10px var(--neon-pink-glow));
   transition: color 0.3s ease, filter 0.3s ease, transform 0.2s ease;
-  border-radius: 12px;
   z-index: 10;
+}
+
+/* Left arrow */
+#left-arrow {
+  left: -30px;
+}
+
+/* Right arrow */
+#right-arrow {
+  right: -30px;
 }
 
 .carousel-arrow:hover {
@@ -98,16 +107,6 @@ header h1 {
 
 .carousel-arrow:active {
   transform: translateY(-50%) scale(0.95);
-}
-
-/* Left arrow on left side */
-#left-arrow {
-  left: 10px;
-}
-
-/* Right arrow on right side */
-#right-arrow {
-  right: 1000px;
 }
 
 /* Code section styling */
@@ -158,21 +157,31 @@ body::-webkit-scrollbar-thumb:hover {
   box-shadow: 0 0 20px var(--neon-white-glow);
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 900px) {
   #carousel-image {
     max-width: 90vw;
     max-height: 60vh;
   }
-  #gui-carousel-section {
-    margin-bottom: 2rem;
+
+  #left-arrow,
+  #right-arrow {
+    font-size: 3.5rem;
+    width: 50px;
+    height: 80px;
+  }
+
+  #left-arrow {
+    left: -20px;
+  }
+
+  #right-arrow {
+    right: -20px;
   }
 }
 
 @media (max-width: 600px) {
   .carousel-arrow {
-    font-size: 4rem;
-    width: 50px;
-    height: 80px;
+    font-size: 3rem;
   }
 }
