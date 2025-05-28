@@ -29,4 +29,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', reveal);
   reveal(); // initial check
+
+
+  // Carousel logic
+  const images = [
+    'gui.png',
+    'gui1.png',
+    'gui2.png',
+    'gui3.png',
+    'gui4.png',
+    'gui5.png',
+  ];
+
+  let currentIndex = 0;
+  const imgElement = document.getElementById('carousel-image');
+  const leftBtn = document.querySelector('#gui-carousel-section .carousel-arrow.left');
+  const rightBtn = document.querySelector('#gui-carousel-section .carousel-arrow.right');
+
+  function showImage(index) {
+    if (index < 0) index = images.length - 1;
+    else if (index >= images.length) index = 0;
+    currentIndex = index;
+    imgElement.src = images[currentIndex];
+  }
+
+  leftBtn.addEventListener('click', () => {
+    showImage(currentIndex - 1);
+  });
+
+  rightBtn.addEventListener('click', () => {
+    showImage(currentIndex + 1);
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+  });
+
+  // Initialize carousel to first image
+  showImage(0);
 });
