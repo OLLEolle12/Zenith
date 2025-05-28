@@ -31,42 +31,48 @@ document.addEventListener('DOMContentLoaded', () => {
   reveal(); // initial check
 
 
-  // Carousel logic
-  const images = [
-    'gui.png',
-    'gui1.png',
-    'gui2.png',
-    'gui3.png',
-    'gui4.png',
-    'gui5.png',
-  ];
+// Image Carousel Logic
+const images = [
+  'gui.png',
+  'gui1.png',
+  'gui2.png',
+  'gui3.png',
+  'gui4.png',
+  'gui5.png'
+];
 
-  let currentIndex = 0;
-  const imgElement = document.getElementById('carousel-image');
-  const leftBtn = document.querySelector('#gui-carousel-section .carousel-arrow.left');
-  const rightBtn = document.querySelector('#gui-carousel-section .carousel-arrow.right');
+let currentImageIndex = 0;
+const carouselImage = document.getElementById('carousel-image');
+const leftArrow = document.getElementById('left-arrow');
+const rightArrow = document.getElementById('right-arrow');
 
-  function showImage(index) {
-    if (index < 0) index = images.length - 1;
-    else if (index >= images.length) index = 0;
-    currentIndex = index;
-    imgElement.src = images[currentIndex];
-  }
-
-  leftBtn.addEventListener('click', () => {
-    showImage(currentIndex - 1);
-  });
-
-  rightBtn.addEventListener('click', () => {
-    showImage(currentIndex + 1);
-  });
-
-  // Keyboard navigation
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
-    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
-  });
-
-  // Initialize carousel to first image
-  showImage(0);
+leftArrow.addEventListener('click', () => {
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  carouselImage.src = images[currentImageIndex];
 });
+
+rightArrow.addEventListener('click', () => {
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  carouselImage.src = images[currentImageIndex];
+});
+
+// Load Lua Script Content into Code Block
+fetch('script.lua')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Could not load script.lua');
+    }
+    return response.text();
+  })
+  .then(code => {
+    const codeBlock = document.getElementById('lua-code-block');
+    codeBlock.textContent = code;
+    // Trigger Prism highlight
+    if (window.Prism) {
+      Prism.highlightElement(codeBlock);
+    }
+  })
+  .catch(error => {
+    console.error('Error loading Lua script:', error);
+  });
+
