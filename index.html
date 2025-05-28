@@ -2,14 +2,78 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <title>Min Roblox Lua-samling</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Mitt Roblox-fusk med Rayfield GUI</title>
+
+  <!-- Prism CSS för snygg syntaxmarkering -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #1e1e1e;
+      color: #ddd;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    img {
+      max-width: 400px;
+      margin: 20px auto;
+      border: 2px solid #444;
+      border-radius: 10px;
+      display: block;
+    }
+    pre {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      font-size: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+      background-color: #2d2d2d;
+      color: #ddd;
+      text-align: left;
+      box-shadow: 0 0 15px #00b7ff99;
+    }
+  </style>
 </head>
 <body>
-  <h1>Min Roblox Lua-samling</h1>
-  <p>Här kan du se och ladda ner mitt Lua-script för Roblox:</p>
-  <p><a href="script.lua" target="_blank">Öppna script.lua</a></p>
 
-  <script src="script.js"></script>
+  <h1>Mitt Roblox-fusk med Rayfield GUI</h1>
+
+  <!-- Första bilden -->
+  <img src="rayfield.png" alt="Rayfield GUI" />
+
+  <!-- Andra bilden -->
+  <img src="gui.png" alt="GUI" />
+
+  <h2>Lua-koden</h2>
+  
+  <pre><code id="codeblock" class="language-lua">Laddar kod...</code></pre>
+
+  <!-- Prism JS -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-lua.min.js"></script>
+
+  <script>
+    // Läs in Lua-koden från script.lua och visa den i codeblocket
+    fetch('script.lua')
+      .then(response => {
+        if (!response.ok) throw new Error('Nätverksfel vid hämtning av script.lua');
+        return response.text();
+      })
+      .then(data => {
+        const codeBlock = document.getElementById('codeblock');
+        codeBlock.textContent = data;
+        Prism.highlightElement(codeBlock);
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('codeblock').textContent = 'Kunde inte läsa in script.lua.';
+      });
+  </script>
+
 </body>
 </html>
